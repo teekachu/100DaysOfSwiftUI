@@ -40,10 +40,11 @@ struct FlagsProjectView: View {
                         
                     }, label: {
                         Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule()) // Image shape
-                            .overlay(Capsule().stroke(Color.white, lineWidth: 2)) // border radius
-                            .shadow(color: .white, radius: 2)
+                            .FlagImage()
+//                            .renderingMode(.original)
+//                            .clipShape(Capsule()) // Image shape
+//                            .overlay(Capsule().stroke(Color.white, lineWidth: 2)) // border radius
+//                            .shadow(color: .white, radius: 2)
                         
                     })
                 }
@@ -89,5 +90,18 @@ struct FlagsProjectView: View {
 struct FlagsProjectView_Previews: PreviewProvider {
     static var previews: some View {
         FlagsProjectView()
+    }
+}
+
+
+// Privates
+
+extension Image {
+    func FlagImage() -> some View {
+        self
+            .renderingMode(.original)
+            .clipShape(Capsule()) // Image shape
+            .overlay(Capsule().stroke(Color.white, lineWidth: 2)) // border radius
+            .shadow(color: .white, radius: 2)
     }
 }
